@@ -1,5 +1,5 @@
 {
-  "name": "@nextcrazy/cli",
+  "name": "nextcrazy-cli",
   "version": "0.1.0",
   "description": "A NextJS cli meant to be used with nextcrazy boilerplate",
   "main": "src/index.js",
@@ -21,7 +21,7 @@
   "author": {
     "email": "it.moh.ou@gmail.com",
     "name": "Mohammad AlOulabi",
-    "url": "https://twitter.com/mhmdou1"
+    "url": "https://www.npmjs.com/~mohammadou1"
   },
   "license": "MIT",
   "dependencies": {
@@ -33,5 +33,13 @@
     "inquirer": "^7.3.3",
     "ncp": "^2.0.0",
     "write": "^2.0.0"
-  }
+  },
+  "repository": {
+    "url": "https://github.com/mohammadou1/nextcrazy-cli"
+  },
+  "keywords": [
+    "nextcrazy",
+    "nextcrazy-cli",
+    "nextcrazy cli"
+  ]
 }
