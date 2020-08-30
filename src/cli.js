@@ -36,7 +36,7 @@ async function handleAndPromptOptions(options) {
     const { module } = await inquirer.prompt({
       type: "list",
       name: "module",
-      message: "Want to create a page or a language?",
+      message: "What do you want to generate?",
       choices: ["Page", "Component", "Language"],
       default: "page",
     });
