@@ -13,7 +13,7 @@ export async function promptPageOptions(options) {
     const { out } = await inquirer.prompt({
       type: "list",
       name: "out",
-      message: "Where do you want the file to be generated ?",
+      message: "Where do you want the file to be generated?",
       choices: ["Inside [lang]", "Outside [lang]"],
     });
     options.out = out === "Outside [lang]";
