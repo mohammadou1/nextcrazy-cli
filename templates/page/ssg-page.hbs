@@ -1,0 +1,48 @@
+{{#if outside}}
+{{#if isDynamicRoute}}
+import { GetStaticProps, GetStaticPaths } from 'next';
+import { getPaths } from '~/utils/translate';
+{{else}}
+import { GetStaticProps } from 'next';
+{{/if}}
+const {{pageName}} = () => {
+   return <div>This is {{pageName}}</div>;
+};
+
+{{#if isDynamicRoute}}
+export const getStaticPaths: GetStaticPaths = async () => {
+   return {
+      paths: getPaths({{dynamic dynamicParams}}),
+      fallback: false,
+   };
+};
+{{/if}}
+export const getStaticProps: GetStaticProps = async () => {
+   return {
+      props: {},
+   };
+};
+
+{{else}}
+import { GetStaticProps, GetStaticPaths } from 'next';
+import { getLanguagesPaths } from '~/utils/translate';
+
+const {{pageName}} = () => {
+   return <div>This is {{pageName}}</div>;
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+   return {
+      paths: getLanguagesPaths({{#if isDynamicRoute}}{{dynamic dynamicParams}}{{/if}}),
+      fallback: false,
+   };
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+   return {
+      props: {},
+   };
+};
+
+{{/if}}
+export default {{pageName}};

@@ -1,0 +1,16 @@
+import { Translate } from '~/i18n';
+import { useAuth } from '~/auth';
+
+const {{name}} = () => {
+   const { authenticated } = useAuth();
+
+   return (
+      <div>
+         <Translate id="common:some-key" />
+
+         {authenticated && <div>am protected</div>}
+      </div>
+   );
+};
+
+export default {{name}};
