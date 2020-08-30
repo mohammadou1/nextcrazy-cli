@@ -1,6 +1,6 @@
 {
   "name": "nextcrazy-cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A NextJS cli meant to be used with nextcrazy boilerplate",
   "main": "src/index.js",
   "bin": {
@@ -31,7 +31,6 @@
     "esm": "^3.2.25",
     "handlebars": "^4.7.6",
     "inquirer": "^7.3.3",
-    "ncp": "^2.0.0",
     "write": "^2.0.0"
   },
   "repository": {
