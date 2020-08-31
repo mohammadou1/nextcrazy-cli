@@ -17,14 +17,8 @@ export async function generateLanguage(lang, rtl) {
     const rawParsed = JSON.parse(raw);
     if (!rawParsed.languages[lang]) rawParsed.languages[lang] = dir;
 
-    const allLanguages = Object.keys(rawParsed.languages);
+    // const allLanguages = Object.keys(rawParsed.languages);
     const defaultLanguage = rawParsed.defaultLanguage;
-    // const addedLanguageToTranslation = JSON.stringify(rawParsed)
-    //   .replace(",", ",\n")
-    //   .replace("{", "{\n")
-    //   .replace("}", "}\n");
-
-    // write(translationJson, addedLanguageToTranslation, { increment: false });
 
     fs.readFile(
       getPath("../../templates/translation/translation-json.hbs"),
@@ -67,27 +61,27 @@ export async function generateLanguage(lang, rtl) {
       increment: false,
     });
 
-    fs.readFile(
-      getPath("../../templates/translation/translation-index.hbs"),
-      (err, data) => {
-        if (!err) {
-          const source = data.toString();
-          const compiled = handlerbars.compile(source, { noEscape: true });
-          const output = compiled({
-            allLanguages,
-          });
+    // fs.readFile(
+    //   getPath("../../templates/translation/translation-index.hbs"),
+    //   (err, data) => {
+    //     if (!err) {
+    //       const source = data.toString();
+    //       const compiled = handlerbars.compile(source, { noEscape: true });
+    //       const output = compiled({
+    //         allLanguages,
+    //       });
 
-          const destination = `${process.cwd()}/translations/index.ts`;
+    //       const destination = `${process.cwd()}/translations/index.ts`;
 
-          write(destination, output, {
-            overwrite: true,
-            increment: false,
-          }).then(() =>
-            console.log(chalk.green("Language was generated successfully!"))
-          );
-        }
-      }
-    );
+    //       write(destination, output, {
+    //         overwrite: true,
+    //         increment: false,
+    //       }).then(() =>
+    //         console.log(chalk.green("Language was generated successfully!"))
+    //       );
+    //     }
+    //   }
+    // );
   } catch (error) {
     console.log(error);
   }
