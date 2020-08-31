@@ -5,30 +5,44 @@ import { nextCrazy } from "./main";
 import { promptPageOptions } from "./page-cli";
 import { promptComponentOptions } from "./component-cli";
 import { promptLanguageOptions } from "./language-cli";
-
+import fs from "fs";
+import path from "path";
 function parseArgumentsIntoOptions(rawArgs) {
   const args = arg(
     {
       "--name": String,
       "--out": Boolean,
       "--ssr": Boolean,
+      "--version": Boolean,
+      "--rtl": Boolean,
       "-n": "--name",
       "-o": "--out",
+      "-v": "--version",
     },
     {
       argv: rawArgs.slice(2),
     }
   );
   return {
-    name: args["--name"],
+    module: args._[0],
     out: args["--out"],
     ssr: args["--ssr"],
-    module: args._[0],
+    rtl: args["--rtl"],
+    name: args["--name"],
+    version: args["--version"],
   };
 }
 
+function parseVersion() {
+  const jsonPath = path.join(__dirname, "..", "package.json");
+  const json = JSON.parse(fs.readFileSync(jsonPath));
+  return json.version;
+}
+
 async function handleAndPromptOptions(options) {
-  const valid_modules = ["page", "language", "component"];
+  if (options.version) return console.log(parseVersion());
+
+  const valid_modules = ["page", "language", "component", "p", "l", "c"];
   if (options.module && !valid_modules.includes(options.module)) {
     return console.log(chalk.red(`Invalid argument ${options.module}`));
   }
@@ -42,17 +56,20 @@ async function handleAndPromptOptions(options) {
     });
     options.module = module.toLowerCase();
   }
-  if (options.module === "page") {
+  if (options.module === "page" || options.module === "p") {
     options.out = options.out;
     options.ssr = options.ssr;
+    options.module = "page";
     await promptPageOptions(options);
   }
 
-  if (options.module === "component") {
+  if (options.module === "component" || options.module === "c") {
+    options.module = "component";
     await promptComponentOptions(options);
   }
 
-  if (options.module === "language") {
+  if (options.module === "language" || options.module === "l") {
+    options.module = "language";
     await promptLanguageOptions(options);
   }
 
@@ -63,7 +80,7 @@ export async function cli(args) {
   try {
     let options = parseArgumentsIntoOptions(args);
     options = await handleAndPromptOptions(options);
-    if (!options.name)
+    if (options && !options.name)
       return console.log(chalk.red(`${options.module} name is required`));
     await nextCrazy(options);
   } catch (error) {

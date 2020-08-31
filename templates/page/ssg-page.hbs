@@ -17,11 +17,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
    };
 };
 {{/if}}
-export const getStaticProps: GetStaticProps = async () => {
-   return {
-      props: {},
-   };
-};
 
 {{else}}
 import { GetStaticProps, GetStaticPaths } from 'next';
@@ -37,12 +32,30 @@ export const getStaticPaths: GetStaticPaths = async () => {
       fallback: false,
    };
 };
+{{/if}}
 
-export const getStaticProps: GetStaticProps = async () => {
+/******************************************************************
+ *
+ *  THIS PAGE IS USING STATIC SITE GENERATION
+ *
+ ******************************************************************/
+
+{{#if isDynamicRoute}}
+/* ----- You can access the all params inside getStaticProps ---- */
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+   console.info(params);
    return {
       props: {},
    };
 };
 
+{{else}}
+export const getStaticProps: GetStaticProps = async () => {
+   return {
+      props: {},
+   };
+};
 {{/if}}
+
 export default {{pageName}};

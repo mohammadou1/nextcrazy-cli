@@ -1,0 +1,15 @@
+{{#each allLanguages}}
+import {{this}} from './{{this}}';
+{{/each}}
+
+type Translations = {
+   [key: string]: Record<string, unknown>;
+};
+
+const translations: Translations = {
+ {{#each allLanguages}}
+   {{this}},
+{{/each}}
+};
+
+export default translations;

@@ -1,0 +1,8 @@
+{
+   "defaultLanguage": "{{defaultLanguage}}",
+   "languages": {
+    {{#each allLanguages}}
+      "{{@key}}": "{{this}}"{{#unless @last}},{{/unless}}
+    {{/each}}
+   }
+}
