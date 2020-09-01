@@ -26,7 +26,7 @@ export async function generateLanguage(lang, rtl) {
           const source = data.toString();
           const compiled = handlerbars.compile(source, { noEscape: true });
           const output = compiled({
-            allLanguages:rawParsed.languages,
+            allLanguages: rawParsed.languages,
             defaultLanguage,
           });
 
@@ -34,32 +34,33 @@ export async function generateLanguage(lang, rtl) {
             overwrite: true,
             increment: false,
           });
+
+          const index = `import common from './common.json';
+          export default {
+            common,
+          };
+          `;
+
+          const json = `{
+            "nextcrazy":""
+          }`;
+
+          const translationsFolder = process.cwd() + "/translations/";
+
+          write(translationsFolder + lang + "/index.ts", index, {
+            overwrite: false,
+            increment: false,
+          });
+
+          write(translationsFolder + lang + "/common.json", json, {
+            overwrite: false,
+            increment: false,
+          }).then(() =>
+            console.log(chalk.green("Language was generated successfully!"))
+          );
         }
       }
     );
-
-    const index = `import common from './common.json';
-    export default {
-      common,
-    };
-    `;
-
-    const json = `{
-      "nextcrazy":""
-    }`;
-
-    const translationsFolder = process.cwd() + "/translations/";
-
-    write(translationsFolder + lang + "/index.ts", index, {
-      overwrite: false,
-      increment: false,
-    });
-
-    write(translationsFolder + lang + "/common.json", json, {
-      overwrite: false,
-      increment: false,
-    });
-
   } catch (error) {
     console.log(error);
   }
