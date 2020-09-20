@@ -48,6 +48,7 @@
     "@types/camelcase": "^5.2.0",
     "@types/chalk": "^2.2.0",
     "@types/clear": "^0.1.0",
+    "@types/figlet": "^1.2.0",
     "@types/node": "^14.11.1",
     "@types/prompts": "^2.0.9",
     "@types/write": "^2.0.0",
