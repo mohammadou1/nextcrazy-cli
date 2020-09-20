@@ -6,7 +6,7 @@
 
 #### Work in progress
 
-NEXTCRAZY-CLI 0.2.1-1 is rewriten with typescript, it's still being updated,
+NEXTCRAZY-CLI 0.2.1-8 is rewriten with typescript, it's still being updated,
 To see the whole features, run
 
 ```bash
