@@ -4,7 +4,7 @@
     "target": "ESNext",
     "module": "commonjs",
     "lib": ["ES6", "ES2015", "ESNext"],
-    "outDir": "dist",
+    "outDir": "lib",
     "rootDir": "src",
     "strict": true,
     "allowSyntheticDefaultImports": true,
@@ -14,5 +14,5 @@
     "removeComments": true
   },
 
-  "exclude": ["node_modules", "dist", "test"]
+  "exclude": ["node_modules", "lib", "test"]
 }
