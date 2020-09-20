@@ -6,5 +6,11 @@
 
 #### Work in progress
 
-NEXTCRAZY-CLI 0.2.0 is rewriten with typescript, it's still being updated,
-To see the whole features, run `bash nextcrazy-cli` inside a nextcrazy boiler project
+NEXTCRAZY-CLI 0.2.1-1 is rewriten with typescript, it's still being updated,
+To see the whole features, run
+
+```bash
+nextcrazy-cli
+```
+
+inside a nextcrazy boiler project
