@@ -5,6 +5,7 @@ import { getPaths } from '~/utils/translate';
 {{else}}
 import { GetStaticProps } from 'next';
 {{/if}}
+
 const {{pageName}} = () => {
    return <div>This is {{pageName}}</div>;
 };
@@ -49,7 +50,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       props: {},
    };
 };
-
 {{else}}
 export const getStaticProps: GetStaticProps = async () => {
    return {
