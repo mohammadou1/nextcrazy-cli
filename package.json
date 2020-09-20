@@ -44,7 +44,7 @@
     "write": "^2.0.0"
   },
   "repository": {
-    "url": "https://github.com/mohammadou1/nextcrazy-cli"
+    "url": "https://github.com/mohammadou1/nextcrazy-cli",
   },
   "keywords": [
     "nextcrazy",

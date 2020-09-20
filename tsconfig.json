@@ -14,5 +14,5 @@
     "removeComments": true
   },
 
-  "exclude": ["node_modules", "dist", "test", "templates"]
+  "exclude": ["node_modules", "dist", "test"]
 }
