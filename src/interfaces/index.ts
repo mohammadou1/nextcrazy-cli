@@ -5,7 +5,7 @@ export interface SSGExampleObject {
 export interface GeneratedPageProps {
   pageName: string;
   isDynamicRoute?: boolean;
-  dynamicParams?: SSGExampleObject;
+  dynamicParams?: SSGExampleObject[];
 }
 
 export interface GeneratedComponentProps {

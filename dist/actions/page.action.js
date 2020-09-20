@@ -29,7 +29,7 @@ exports.generatePage = async () => {
         generateFromTemplate("ssg-page.hbs", path, {
             pageName,
             isDynamicRoute: !!dynamicRoutes,
-            dynamicParams: exampleObject,
+            dynamicParams: [exampleObject],
         });
     else {
         generateFromTemplate("ssr-page.hbs", path, { pageName });

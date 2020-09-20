@@ -50,7 +50,7 @@ export const generatePage = async () => {
     generateFromTemplate("ssg-page.hbs", path, {
       pageName,
       isDynamicRoute: !!dynamicRoutes,
-      dynamicParams: exampleObject,
+      dynamicParams: [exampleObject],
     });
   else {
     /* ------------------------ getting template for SSR ----------------------- */
