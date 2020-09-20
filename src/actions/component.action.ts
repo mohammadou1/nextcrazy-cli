@@ -30,7 +30,7 @@ const generateFromTemplate = async (
 ) => {
   try {
     const data = fs.readFileSync(
-      path.join(__dirname, "../../src/templates/component", template)
+      path.join(__dirname, "../../templates/component", template)
     );
 
     const compiled = handlerbars.compile(data.toString(), { noEscape: true });

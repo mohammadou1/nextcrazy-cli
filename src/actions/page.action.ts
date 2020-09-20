@@ -65,7 +65,7 @@ const generateFromTemplate = async (
 ) => {
   try {
     const data = fs.readFileSync(
-      path.join(__dirname, "../../src/templates/page", template)
+      path.join(__dirname, "../../templates/page", template)
     );
 
     /* -------------------------------------------------------------------------- */

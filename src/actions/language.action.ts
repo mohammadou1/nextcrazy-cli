@@ -42,7 +42,7 @@ const generateLanguageFromTemplate = async (
 ) => {
   try {
     const data = fs.readFileSync(
-      path.join(__dirname, "../../src/templates/translation", template)
+      path.join(__dirname, "../../templates/translation", template)
     );
     const compiled = handlerbars.compile(data.toString(), { noEscape: true });
     const output = compiled({
