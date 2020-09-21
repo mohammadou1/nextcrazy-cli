@@ -35,6 +35,7 @@ Options
 
 I try to update it regulary with new ideas, if you have any suggestion please contact me on 
 <it.moh.ou@gmail.com>
+or feel free to create a pull request
 
 and please make sure to visit [NEXTCRAZY Boilerplate](https://github.com/mohammadou1/nextcrazy) and give it a star :)
 
