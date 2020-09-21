@@ -22,6 +22,12 @@ export enum ConsoleMessage {
   LANGUAGE_EXISTS = "Language exists, ignored generating folders, updating JSON only (in case the dir was manipulated)",
   TRANSLATIONS_JSON_NOT_FOUND = "translations.json not found in root directory.",
 
+  // PROJECT
+  GENERATING_PROJECT="Project is generating, please wait",
+  PROJECT_GENERATED="The Project was successfully generated!",
+  PROJECT_NAME_QUESTION = "What do you want to name this project?",
+  NAME_REQUIRED = "Please pass project name as (nextcrazy-cli project project-name)",
+
   INFO = "INFO: ",
   SUCCESS = "SUCCESS: ",
   ERROR = "ERROR: ",
@@ -34,6 +40,7 @@ export enum Options {
   PAGE = "page",
   COMPONENT = "component",
   LANGUAGE = "language",
+  PROJECT = "project",
 
   SSR = "ssr",
   SSG = "ssg",
