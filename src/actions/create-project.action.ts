@@ -63,7 +63,7 @@ const getRepositoryTemplate = async (
     execSync(
       `cd ${path} && ${
         selectedManager === Options.YARN ? "yarn" : "npm install"
-      } && prettier --write package.json`,
+      } && yarn prettier`,
       { stdio: "inherit" }
     );
 
