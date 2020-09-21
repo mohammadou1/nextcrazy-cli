@@ -27,7 +27,7 @@ export const createProject = async (folder: string, manager?: Manager) => {
 const getRepositoryTemplate = async (
   path: string,
   selectedManager: Manager,
-  name:string
+  name: string
 ) => {
   try {
     if (!fs.existsSync(path)) {
@@ -46,16 +46,29 @@ const getRepositoryTemplate = async (
       tar.extract({ cwd: path, strip: 1 }, ["nextcrazy-master"])
     );
 
+    const packageJson = await fs
+      .readFileSync(path + "/package.json")
+      .toString();
+    const parsed = JSON.parse(packageJson);
+
+    // Since am using the master repo, it has unneeded package.json data, in the future, examples folder should be created
+    delete parsed.keywords;
+    delete parsed.description;
+
+    parsed.name = name;
+
+    await fs.writeFileSync(path + "/package.json", JSON.stringify(parsed));
+
+    // Prettifiyng package.json
     execSync(
       `cd ${path} && ${
         selectedManager === Options.YARN ? "yarn" : "npm install"
-      }`,
+      } && prettier --write package.json`,
       { stdio: "inherit" }
     );
 
     showSuccess(ConsoleMessage.PROJECT_GENERATED);
     showInfo(`cd ${name}, run "yarn dev" to start the project`);
-    
   } catch (error) {
     showError(error);
   }
