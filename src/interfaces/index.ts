@@ -1,3 +1,5 @@
+import { Options } from './console.enum';
+
 export interface SSGExampleObject {
   [key: string]: string;
 }
@@ -11,3 +13,5 @@ export interface GeneratedPageProps {
 export interface GeneratedComponentProps {
   name: string;
 }
+
+export type Manager = Options.NPM | Options.YARN;

@@ -4,6 +4,13 @@ import { generateComponent, generateLanguage, generatePage } from "./actions";
 import { provideProjectQuestions, provideQuestions } from "./questions";
 import { ConsoleMessage, Options } from "./interfaces/console.enum";
 import { createProject } from "./utils/create-project.util";
+import { Manager } from './interfaces';
+
+
+interface NewProjectAnswers {
+  path: string;
+  manager: Manager;
+}
 
 const NextCrazy = async (): Promise<any> => {
   showTitleAndBanner();
@@ -24,12 +31,17 @@ const NextCrazy = async (): Promise<any> => {
     }
   }
 
+  // Showing options to the user
   const answer = await provideQuestions();
 
   if (answer === Options.PROJECT) {
-    const { path } = await provideProjectQuestions();
-    if(path) createProject(path);
-    return
+    const {
+      path,
+      manager,
+    }: NewProjectAnswers = await provideProjectQuestions();
+
+    if (path) createProject(path,manager);
+    return;
   }
   if (answer === Options.PAGE) {
     return generatePage();

@@ -23,10 +23,12 @@ export enum ConsoleMessage {
   TRANSLATIONS_JSON_NOT_FOUND = "translations.json not found in root directory.",
 
   // PROJECT
-  GENERATING_PROJECT="Project is generating, please wait",
-  PROJECT_GENERATED="The Project was successfully generated!",
+  GENERATING_PROJECT = "Project is generating, please wait",
+  PROJECT_GENERATED = "The Project was successfully generated!",
   PROJECT_NAME_QUESTION = "What do you want to name this project?",
   NAME_REQUIRED = "Please pass project name as (nextcrazy-cli project project-name)",
+  PROJECT_PACKAGE_MANAGER = "What do you want to setup the project with?",
+  PROJECT_EXISTS = "Project with the same name already exists",
 
   INFO = "INFO: ",
   SUCCESS = "SUCCESS: ",
@@ -47,4 +49,7 @@ export enum Options {
 
   RTL = "rtl",
   LTR = "ltr",
+
+  YARN = "yarn",
+  NPM = "npm",
 }
