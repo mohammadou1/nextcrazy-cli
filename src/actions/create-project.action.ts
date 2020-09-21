@@ -1,4 +1,4 @@
-import { showError, showInfo, showSuccess } from "./logger.util";
+import { showError, showInfo, showSuccess } from "../utils/logger.util";
 import path from "path";
 import tar from "tar";
 import got from "got";
@@ -19,13 +19,15 @@ export const createProject = async (folder: string, manager?: Manager) => {
   showInfo(ConsoleMessage.GENERATING_PROJECT);
   await getRepositoryTemplate(
     path.join(process.cwd(), folder),
-    selectedManager
+    selectedManager,
+    folder
   );
 };
 
 const getRepositoryTemplate = async (
   path: string,
-  selectedManager: Manager
+  selectedManager: Manager,
+  name:string
 ) => {
   try {
     if (!fs.existsSync(path)) {
@@ -52,7 +54,7 @@ const getRepositoryTemplate = async (
     );
 
     showSuccess(ConsoleMessage.PROJECT_GENERATED);
-    showInfo(`cd ${path}, run "yarn dev" to start the project`);
+    showInfo(`cd ${name}, run "yarn dev" to start the project`);
     
   } catch (error) {
     showError(error);

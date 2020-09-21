@@ -3,7 +3,7 @@ import { parseArgs } from "./utils/args.util";
 import { generateComponent, generateLanguage, generatePage } from "./actions";
 import { provideProjectQuestions, provideQuestions } from "./questions";
 import { ConsoleMessage, Options } from "./interfaces/console.enum";
-import { createProject } from "./utils/create-project.util";
+import { createProject } from "./actions/create-project.action";
 import { Manager } from './interfaces';
 
 
