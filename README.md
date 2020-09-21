@@ -2,7 +2,7 @@
 
 [NEXTCRAZY Boilerplate](https://github.com/mohammadou1/nextcrazy)
 
->NEXTCRAZY-CLI 0.2.2 is the very first version that is considered stable
+>NEXTCRAZY-CLI 0.2.3 is the very first version that is considered stable
 
 install
 ```bash
