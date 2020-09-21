@@ -1,6 +1,6 @@
 {
   "name": "nextcrazy-cli",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "A NextJS cli meant to be used with nextcrazy boilerplate",
   "main": "./lib/index.js",
   "bin": {
